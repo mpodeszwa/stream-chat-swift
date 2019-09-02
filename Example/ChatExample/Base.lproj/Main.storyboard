@@ -63,27 +63,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-5J-VyU">
-                                <rect key="frame" x="89.5" y="298.5" width="196" height="90"/>
+                                <rect key="frame" x="89" y="283.5" width="197" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMz-sX-zDG">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
                                         <state key="normal" title="Show Channels"/>
                                         <connections>
                                             <segue destination="aEe-dp-x44" kind="presentation" id="seW-P6-fEX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Try-iz-4dr">
-                                        <rect key="frame" x="0.0" y="30" width="196" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="197" height="30"/>
                                         <state key="normal" title="Show Channels (Dark mode)"/>
                                         <connections>
                                             <segue destination="f3z-HF-D2M" kind="presentation" id="ChK-wq-97q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Of-ZP-Ztv">
-                                        <rect key="frame" x="0.0" y="60" width="196" height="30"/>
+                                        <rect key="frame" x="0.0" y="60" width="197" height="30"/>
                                         <state key="normal" title="Show Chat (#general)"/>
                                         <connections>
                                             <segue destination="Z71-Wp-boH" kind="presentation" id="Z6X-IU-Iab"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auN-1h-sv3">
+                                        <rect key="frame" x="0.0" y="90" width="197" height="30"/>
+                                        <state key="normal" title="Show Chat Offset (#general)"/>
+                                        <connections>
+                                            <segue destination="5wQ-5R-vMA" kind="presentation" id="Vl4-Ak-luB"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -165,10 +172,25 @@
             </objects>
             <point key="canvasLocation" x="1134" y="681"/>
         </scene>
+        <!--Custom Container View Controller-->
+        <scene sceneID="f7R-XZ-F3i">
+            <objects>
+                <viewController id="5wQ-5R-vMA" customClass="CustomContainerViewController" customModule="ChatExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s7b-Dv-907">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gjx-dr-Tn4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a98-vY-E3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-367" y="681"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FFK-m4-8Eg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z71-Wp-boH" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="CustomChatNavVC" storyboardIdentifier="CustomChatNavVC" automaticallyAdjustsScrollViewInsets="NO" id="Z71-Wp-boH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="Uhp-Gu-8p3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fap-uP-7Ox">
