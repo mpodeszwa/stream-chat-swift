@@ -9,15 +9,27 @@
 import UIKit
 import StreamChatCore
 import StreamChat
+import RxSwift
+
+var disposeBag2 = DisposeBag()
 
 class CustomChatViewController: ChatViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        Client.shared.set(user: .user2, token: .token2)
         let channel = Channel(id: "general", name: "General")
         channelPresenter = ChannelPresenter(channel: channel)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        disposeBag2 = DisposeBag()
+        Client.shared.onEvent(.messageNew).subscribe(onNext: { event in
+            print(event)
+        }).disposed(by: disposeBag2)
+    }
+
     override func messageCell(at indexPath: IndexPath, message: Message, readUsers: [User]) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "message")
             ?? UITableViewCell(style: .value2, reuseIdentifier: "message")

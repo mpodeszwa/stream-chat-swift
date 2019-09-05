@@ -172,6 +172,7 @@ extension Client {
             .do(onDispose: { [weak self] in self?.webSocket.disconnect() })
         
         return Observable.combineLatest(appState, internetIsAvailable, webSocketResponse)
+            .delay(.seconds(1), scheduler: MainScheduler.instance)
             .map { [weak self] in self?.webSocket.parseConnection(appState: $0, isInternetAvailable: $1, event: $2) }
             .unwrap()
             .distinctUntilChanged()
