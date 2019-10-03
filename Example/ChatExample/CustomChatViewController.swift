@@ -22,6 +22,12 @@ class CustomChatViewController: ChatViewController {
         channelPresenter = ChannelPresenter(channel: channel)
     }
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        let channel = Channel(type: .messaging, id: "general")
+        channelPresenter = ChannelPresenter(channel: channel)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
